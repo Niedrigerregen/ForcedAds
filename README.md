@@ -12,3 +12,26 @@ The Application will send a request to the server and if no respond comes in und
 
 ## Bad sides
 A bypass by manipulating the source code would be fairly easy and i'm not planning to make it more safe. Just make your game closed source lol
+
+## Proof of Concept
+
+For the Proof of Concept i decided to code it in python because i think it's the most simple as it's often used for backend stuff so the code also turned out as pretty short with just 14 lines
+
+```
+import sys
+import requests
+import time
+
+Url = "http://localhost:8000/get_integer"
+
+while True:
+    if requests.get(Url).status_code == 200:
+        print("Int.True")
+        time.sleep(60)
+    else:
+        print("Int.False")
+        sys.exit()
+
+    time.sleep(60)
+
+```
